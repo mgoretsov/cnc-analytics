@@ -217,8 +217,8 @@ function getChartingData4($connection, $machine, $startDate, $endDate, $startTim
 	}
 	$sql .= '\'\'';
 	$sql .= ')';
-	$sql .= ' and LogDate >= \''.$startDate.' 00:00:00\'';
-	$sql .= ' and LogDate <= \''.$endDate.' 23:59:59\'';
+	$sql .= 'and LogDate BETWEEN \''.$startDate.'\' AND \''.$endDate.'\'';
+	$sql .= 'and cast(LogDate as time) BETWEEN \''.$startTime.'\' AND \''.$endTime.'\'';
 	$sql .= ' ORDER BY LogDate ASC';
 	$parameteres = [];
 	$options = [];
